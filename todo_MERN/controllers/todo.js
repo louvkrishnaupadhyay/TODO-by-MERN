@@ -13,4 +13,4 @@ const deleteTodo = async (req, res)=>{
     res.send("delete created")
 };
 
-module.exports = { createUser, getTodo, updateTodo, deleteTodo };
+module.exports = { createTodo, getTodo, updateTodo, deleteTodo };
