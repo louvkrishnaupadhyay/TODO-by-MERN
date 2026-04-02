@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React , {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Adduser.css';
 
 const Adduser = () => {
     const navigate = useNavigate();
@@ -8,6 +9,10 @@ const Adduser = () => {
     const [mobile, setMobile] = useState("");
 
     const addUserHandler = () => {
+        if (!userName || !mobile) {
+        alert("All fields are required");
+        return;
+        }   
         let payload = {
             userName,
             mobile,
@@ -22,20 +27,39 @@ const Adduser = () => {
         .catch((err) => console.log(err));
     };
     return (
-        <>
-            <button onClick={() => navigate("/")}>Homepage</button>
-            <button onClick={() => navigate("/Edituser")}>Edituser</button>
-            <div>Adduser</div>
-            <br />
-            <br/>
-            <label>userName</label>
-            <input type='text' onChange={(e) => setUserName(e.target.value)} />
-            <label>mobile</label>
-            <input type='text' onChange={(e) => setMobile(e.target.value)} />
+  <div className="form-container">
+    <div className="nav-buttons">
+      <button onClick={() => navigate("/")}>Homepage</button>
+      <button onClick={() => navigate("/Edituser")}>Edit User</button>
+    </div>
 
-            <button onClick={addUserHandler}>Add User</button>
-        </>
-    )
+    <h2>Add User</h2>
+
+    <div className="form-group">
+      <label>User Name</label>
+      <input
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="Enter user name"
+      />
+    </div>
+
+    <div className="form-group">
+      <label>Mobile</label>
+      <input
+        type="text"
+        value={mobile}
+        onChange={(e) => setMobile(e.target.value)}
+        placeholder="Enter mobile number"
+      />
+    </div>
+
+    <button className="submit-btn" onClick={addUserHandler}>
+      Add User
+    </button>
+  </div>
+);  
 };
 
 export default Adduser;

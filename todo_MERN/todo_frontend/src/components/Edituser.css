@@ -1,0 +1,86 @@
+/* Page Layout */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #4338ca;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Header */
+thead {
+  background: #4f46e5;
+  color: white;
+}
+
+th {
+  padding: 14px;
+  text-align: left;
+}
+
+/* Body */
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Hover row */
+tbody tr:hover {
+  background: #f5f7ff;
+}
+
+/* Editable cells */
+td[contenteditable="true"] {
+  background: #f9fafb;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+/* Focus effect */
+td[contenteditable="true"]:focus {
+  outline: 2px solid #4f46e5;
+  background: #eef2ff;
+}
+
+/* Empty state */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
