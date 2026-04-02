@@ -17,6 +17,21 @@ const Homepage = () => {
     }, []);
     console.log("user", user);
 
+    const deleteHandeler = async (_id) => {
+        console.log("id", _id);
+        try{
+            const confirmDelete = window.confirm("Are you sur you want to delete ");
+            if(!confirmDelete) return;
+
+            await axios.delete("http://localhost:3002/", {data:{_id}});
+            setUser((prev) => prev.filter((item) =>item._id !== _id));
+        }
+        catch(err){
+            console.log(err);
+        }
+        
+    }
+
     return (
   <div className="container">
     <h1>User Dashboard</h1>
@@ -32,6 +47,7 @@ const Homepage = () => {
           <th>ID</th>
           <th>User Name</th>
           <th>Mobile</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -40,6 +56,11 @@ const Homepage = () => {
             <td>{post._id}</td>
             <td>{post.userName}</td>
             <td>{post.mobile}</td>
+            <td>
+                <button onClick={() => deleteHandeler(post._id)}>
+                    Delete
+                </button>
+            </td>
           </tr>
         ))}
       </tbody>
