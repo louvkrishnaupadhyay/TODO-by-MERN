@@ -15,7 +15,7 @@ async function startserver(){
         await mongoose.connect(uri);
         console.log("mongodb connected");
 
-        app.listen(3000, (err) =>{
+        app.listen(3002, (err) =>{
         if(err){
             console.log(err);
         }
